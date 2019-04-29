@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6003a3ea-f1e5-4d65-b40d-6b21c6944712" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/mathe.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dados/dados 5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dados/dados 5.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/grafos/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafos/Dijkstra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/grafos/Grafos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/Grafos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/grafos/ListaAdj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataStructure/ListaAdj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/grafos/MatrizAdj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataStructure/MatrizAdj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/grafos/MatrizAdjPeso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataStructure/MatrizAdjPeso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/grafos/MenuGrafoD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/MenuGrafoD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/grafos/MenuGrafoND.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/MenuGrafoND.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafos/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafos/BFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grafos/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grafos/DFS.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,11 +26,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/grafos/Dijkstra.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret lean-forward="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/grafos/BFS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/grafos/DFS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="30" column="33" lean-forward="true" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/menus/MenuGrafoND.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1219">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -62,6 +81,8 @@
         <option value="$PROJECT_DIR$/src/grafos/MenuGrafoD.java" />
         <option value="$PROJECT_DIR$/src/menus/Grafos.java" />
         <option value="$PROJECT_DIR$/src/grafos/Dijkstra.java" />
+        <option value="$PROJECT_DIR$/src/grafos/DFS.java" />
+        <option value="$PROJECT_DIR$/src/grafos/BFS.java" />
       </list>
     </option>
   </component>
@@ -101,6 +122,12 @@
               <item name="Grafos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="grafos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Grafos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Grafos" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="menus" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -176,7 +203,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15355521" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15355521" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -210,13 +237,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/grafos/teste.java" />
-    <entry file="file://$PROJECT_DIR$/src/menus/MenuGrafoND.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/menus/MenuGrafoD.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -256,6 +276,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/menus/MenuGrafoND.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1219">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafos/DFS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="30" column="33" lean-forward="true" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grafos/BFS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
         </state>
       </provider>
     </entry>

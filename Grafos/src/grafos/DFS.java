@@ -22,21 +22,21 @@ public class DFS {
         V = listaAdj.size();
     }
     
-    public void DFS(int v){
-        boolean visited[] = new boolean[V];
-        DFSUtil(v, visited); 
+    public void DFS(int origem){
+        boolean visitado[] = new boolean[V];
+        DFSUtil(origem, visitado);
     }
     
-    private void DFSUtil(int v,boolean visited[]) { 
-        visited[v] = true; 
-        System.out.print(v+" "); 
+    private void DFSUtil(int origiem, boolean visitado[]) {
+        visitado[origiem] = true;
+        System.out.print(origiem+" ");
    
-        Iterator<Integer> i = listaAdj.get(v).listIterator(); 
+        Iterator<Integer> i = listaAdj.get(origiem).listIterator();
         while (i.hasNext()) 
         { 
             int n = i.next(); 
-            if (!visited[n]) 
-                DFSUtil(n, visited); 
+            if (!visitado[n])
+                DFSUtil(n, visitado);
         } 
     } 
     

@@ -23,27 +23,27 @@ public class BFS {
         V = listaAdj.size();
     }
     
-    public void BFS(int s){
-        boolean visited[] = new boolean[V]; 
- 
-        LinkedList<Integer> queue = new LinkedList<Integer>(); 
-  
-        visited[s]=true; 
-        queue.add(s); 
-  
-        while (!queue.isEmpty()) { 
-            
-            s = queue.poll(); 
-            System.out.print(s+" "); 
+    public void BFS(int vertice){
+        boolean visitado[] = new boolean[V];
 
-            Iterator<Integer> i = listaAdj.get(s).listIterator(); 
+        LinkedList<Integer> fila = new LinkedList();
+
+        visitado[vertice]=true;
+        fila.add(vertice);
+  
+        while (!fila.isEmpty()) {
+            
+            vertice = fila.poll();
+            System.out.print(vertice+" ");
+
+            Iterator<Integer> i = listaAdj.get(vertice).listIterator();
             while (i.hasNext()) 
             { 
                 int n = i.next(); 
-                if (!visited[n]) 
+                if (!visitado[n])
                 { 
-                    visited[n] = true; 
-                    queue.add(n); 
+                    visitado[n] = true;
+                    fila.add(n);
                 } 
             } 
         } 
