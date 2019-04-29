@@ -1,4 +1,4 @@
-package grafos;
+package dataStructure;
 
 import java.util.ArrayList;
 

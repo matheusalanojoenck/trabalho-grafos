@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package grafos;
+package menus;
+
+import dataStructure.MatrizAdjPeso;
+import grafos.Dijkstra;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -76,7 +79,7 @@ public class MenuGrafoD {
         System.out.println("Vertice origem: ");
         v1 = scanner.nextInt();
         
-        dijkstra = new Dijkstra(matrizAdjPeso.getMatrizAdjPeso(), v1);
+        dijkstra = new Dijkstra(matrizAdjPeso.getMatrizAdjPeso());
         dijkstra.dijkstra(v1);
     }
 }

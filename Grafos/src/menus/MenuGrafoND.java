@@ -3,7 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package grafos;
+package menus;
+
+import dataStructure.ListaAdj;
+import dataStructure.MatrizAdj;
+import grafos.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -19,7 +23,7 @@ public class MenuGrafoND {
     private Euleriano euleriano;
     private Fleury fleury;
     private DFS dfs;
-    private BFS bfs;  
+    private BFS bfs;
     
     private final Scanner scanner = new Scanner( System.in );
     
