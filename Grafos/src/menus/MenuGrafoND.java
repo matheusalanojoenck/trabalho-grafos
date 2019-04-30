@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package menus;
 
 import dataStructure.ListaAdj;
@@ -16,15 +11,10 @@ import java.util.Scanner;
  *
  * @author mathe
  */
-public class MenuGrafoND {
+class MenuGrafoND {
     private final MatrizAdj matrizAdj;
     private final ListaAdj listaAdj;
-    private Conexo conexo;
-    private Euleriano euleriano;
-    private Fleury fleury;
-    private DFS dfs;
-    private BFS bfs;
-    
+
     private final Scanner scanner = new Scanner( System.in );
     
     public MenuGrafoND(ArrayList<Integer> listaElementos){
@@ -33,7 +23,7 @@ public class MenuGrafoND {
     }
     
     
-    public void menuPrincipal(){
+    void menuPrincipal(){
         int opcao;
         do{
             System.out.println("1)  Matriz de Adjacência");
@@ -65,15 +55,15 @@ public class MenuGrafoND {
                     matrizAdj.addVertice();
                     break;
                 case 5:
-                    conexo = new Conexo(listaAdj.getListaAdj());
+                    Conexo conexo = new Conexo(listaAdj.getListaAdj());
                     System.out.println(conexo.toString());
                     break;
                 case 6:
-                    euleriano = new Euleriano(listaAdj.getListaAdj());
+                    Euleriano euleriano = new Euleriano(listaAdj.getListaAdj());
                     System.out.println(euleriano.toString());
                     break;
                 case 7:
-                    fleury = new Fleury(listaAdj.getListaAdj());
+                    Fleury fleury = new Fleury(listaAdj.getListaAdj());
                     fleury.printCicloEuleriano();
                     break;
                 case 8:
@@ -100,8 +90,8 @@ public class MenuGrafoND {
             System.out.println("Opção invalida!");
             Util.pausa();
         }else{
-            bfs = new BFS(listaAdj.getListaAdj());
-            bfs.BFS(verticeInicio);
+            BFS bfs = new BFS(listaAdj.getListaAdj());
+            bfs.bfs(verticeInicio);
             System.out.println();
         }
     }
@@ -115,8 +105,8 @@ public class MenuGrafoND {
             System.out.println("Opção invalida!");
             Util.pausa();
         }else{
-            dfs = new DFS(listaAdj.getListaAdj());
-            dfs.DFS(verticeInicio);
+            DFS dfs = new DFS(listaAdj.getListaAdj());
+            dfs.dfs(verticeInicio);
             System.out.println();
         }
     }

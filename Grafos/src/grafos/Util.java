@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package grafos;
 
 import java.io.File;
@@ -17,28 +12,27 @@ import java.util.Scanner;
  */
 public class Util {
     
-    private ArrayList<Integer> listaElementos = new ArrayList();
-    Scanner scanner;
-    
+    private ArrayList<Integer> listaElementos = new ArrayList<>();
+
     public static void pausa(){
         System.out.println("Aperte 'Enter' para continuar...");
         try{
-           System.in.read();
+            System.in.read();
         }catch (IOException e){
-            System.out.println(e);
+            System.out.println(e.toString());
         }
     }
     
     public  void initDado(){
-        scanner = null;
+        Scanner scanner;
         try {
-            scanner = new Scanner(new File("dados/dados 5.txt"));
+            scanner = new Scanner(new File("dados/dados 7.txt"));
         } catch (FileNotFoundException ex) {
-            System.err.println(ex);
+            System.err.println(ex.toString());
             return;
         }
 
-        listaElementos = new ArrayList();
+        listaElementos = new ArrayList<>();
 
         while(scanner.hasNextInt()){
             Integer elemento = scanner.nextInt();

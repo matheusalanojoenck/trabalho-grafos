@@ -13,9 +13,9 @@ public class Fleury {
     }
     
     private void initLista(ArrayList<ArrayList<Integer>> listaAdjOriginal){
-        adj = new ArrayList();
+        adj = new ArrayList<>();
         for (int i = 0; i < vertices; i++) {
-            adj.add(new ArrayList());
+            adj.add(new ArrayList<>());
             for (int j = 0; j < listaAdjOriginal.get(i).size(); j++) {
                 adj.get(i).add(listaAdjOriginal.get(i).get(j));
             }

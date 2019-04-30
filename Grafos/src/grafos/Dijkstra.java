@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package grafos;
 
 import java.util.LinkedList;
@@ -13,7 +8,7 @@ import java.util.LinkedList;
  */
 public class Dijkstra {
     
-    LinkedList<LinkedList<Integer>> matrizAdjPeso;
+    private LinkedList<LinkedList<Integer>> matrizAdjPeso;
     private final int V;
     
     public Dijkstra(LinkedList<LinkedList<Integer>> matrizAdjPeso){
@@ -22,25 +17,22 @@ public class Dijkstra {
     }
 
     //Encontra a menor distancia do conjunto de vertices não visitados
-    private int minDistance(int estimativa[], Boolean visitado[]) {
-        int min = Integer.MAX_VALUE, min_index=-1;
+    private int minDistance(int estimativa[], boolean visitado[]) {
+        int min = Integer.MAX_VALUE, min_index = -1;
   
-        for (int v = 0; v < V; v++)
-            if (visitado[v] == false && estimativa[v] <= min)
-            {
+        for (int v = 0; v < V; v++){
+            if (visitado[v] == false && estimativa[v] <= min){
                 min = estimativa[v];
                 min_index = v;
             }
-  
-        return min_index; 
+        }
+        return min_index;
     }
 
     private void printSolution(int[] estimativa, int[] precedente){
         System.out.println("Vertices | Distancia da Origem | Precedente" );
         for (int i = 0; i < V; i++){
             System.out.println(i + " \t\t\t\t " + estimativa[i] + "\t\t\t\t\t" + precedente[i]);
-
-
         }
     }
 
@@ -50,7 +42,7 @@ public class Dijkstra {
         int[] estimativa = new int[V];
 
         //Marca os vertices vistados
-        Boolean visitado[] = new Boolean[V];
+        boolean visitado[] = new boolean[V];
 
         //Marca o vertice precedente do menonor caminho da origem ao vertice atual;
         int[] precedente = new int[V];
