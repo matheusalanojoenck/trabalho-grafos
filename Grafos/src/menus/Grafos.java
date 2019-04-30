@@ -1,8 +1,6 @@
 package menus;
 
 import grafos.Util;
-import menus.MenuGrafoD;
-import menus.MenuGrafoND;
 
 import java.util.Scanner;
 

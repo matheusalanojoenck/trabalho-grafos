@@ -17,11 +17,11 @@ public class Dijkstra {
     }
 
     //Encontra a menor distancia do conjunto de vertices não visitados
-    private int minDistance(int estimativa[], boolean visitado[]) {
+    private int minDistance(int[] estimativa, boolean[] visitado) {
         int min = Integer.MAX_VALUE, min_index = -1;
   
         for (int v = 0; v < V; v++){
-            if (visitado[v] == false && estimativa[v] <= min){
+            if (!visitado[v] && estimativa[v] <= min){
                 min = estimativa[v];
                 min_index = v;
             }
@@ -42,7 +42,7 @@ public class Dijkstra {
         int[] estimativa = new int[V];
 
         //Marca os vertices vistados
-        boolean visitado[] = new boolean[V];
+        boolean[] visitado = new boolean[V];
 
         //Marca o vertice precedente do menonor caminho da origem ao vertice atual;
         int[] precedente = new int[V];
