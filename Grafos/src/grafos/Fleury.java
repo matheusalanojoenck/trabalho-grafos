@@ -1,14 +1,18 @@
 package grafos;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Fleury {
     
     private ArrayList<ArrayList<Integer>> adj;
-    private final int vertices;
+    private final int verticesQnt;
+    private int arestasQnt = 0;
+    private int [][] caminhoEuleriano;
+    private int index = 0;
     
     public Fleury(ArrayList<ArrayList<Integer>> listaAdjOriginal){
-        vertices = listaAdjOriginal.size();
+        verticesQnt = listaAdjOriginal.size();
         initLista(listaAdjOriginal);
     }
 
@@ -17,12 +21,22 @@ public class Fleury {
      */
     private void initLista(ArrayList<ArrayList<Integer>> listaAdjOriginal){
         adj = new ArrayList<>();
-        for (int i = 0; i < vertices; i++) {
+        for (int i = 0; i < verticesQnt; i++) {
             adj.add(new ArrayList<>());
+            arestasQnt = arestasQnt + listaAdjOriginal.get(i).size();
             for (int j = 0; j < listaAdjOriginal.get(i).size(); j++) {
                 adj.get(i).add(listaAdjOriginal.get(i).get(j));
             }
-        }  
+        }
+
+        arestasQnt = arestasQnt/2;
+
+        caminhoEuleriano = new int[arestasQnt][2];
+    }
+
+    public void printCicloEuleriano(){
+        cicloEuleriano();
+        System.out.println("Caminho Euleriano: " + Arrays.deepToString(caminhoEuleriano) + "\n");
     }
 
     /*
@@ -30,19 +44,13 @@ public class Fleury {
     Depois verifica se há um vertice impar e depois chama
     a função printEulerUtil a mostar o caminho
     */
-    public void printCicloEuleriano(){
+    private void cicloEuleriano(){
         Euleriano euleriano = new Euleriano(adj);
         int resp = euleriano.isEuleriano();
         System.out.println(euleriano.toString());
         
         if(resp == 1 || resp == 2){
-            Integer u = 0;
-            for (int i = 0; i < vertices ; i++) {
-                if(adj.get(i).size() % 2 == 1){
-                    u = i;
-                    break;
-                }
-            }
+            Integer u = euleriano.getVerticeImpar();
             printEulerUtil(u);
             System.out.println();
         }
@@ -53,14 +61,15 @@ public class Fleury {
     private void printEulerUtil(Integer u){
 
         /*
-        De forma recursiva passa por todos os vertices adjacentes a vertice u.
+        De forma recursiva passa por todos os verticesQnt adjacentes a vertice u.
         */
         for (int i = 0; i < adj.get(u).size(); i++) {
             Integer v = adj.get(u).get(i);
 
             if(isProximaArestaValida(u, v)){
-                System.out.printf("%d-%d ", u, v);
-                
+                caminhoEuleriano[index][0] = u;
+                caminhoEuleriano[index][1] = v;
+                index++;
                 removeAresta(u, v);
                 printEulerUtil(v);
             }
@@ -81,13 +90,13 @@ public class Fleury {
 
         //Se houver mais de um vertice adjacente então:
         // a) Conte os vertices alcançáveis a partir de u
-        boolean[] isVisitado = new boolean[this.vertices];
+        boolean[] isVisitado = new boolean[this.verticesQnt];
         int count1 = dfsCount(u, isVisitado);
 
         // b) Remova a aresta u - v e apos remover,
         //conte os vertices alcançáveis a partir u
         removeAresta(u, v);
-        isVisitado = new boolean[this.vertices];
+        isVisitado = new boolean[this.verticesQnt];
         int count2 = dfsCount(u, isVisitado);
 
 

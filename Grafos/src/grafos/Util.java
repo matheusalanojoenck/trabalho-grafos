@@ -26,7 +26,7 @@ public class Util {
     public  void initDado(){
         Scanner scanner;
         try {
-            scanner = new Scanner(new File("dados/dados 2.txt"));
+            scanner = new Scanner(new File("dados/dados 6.txt"));
         } catch (FileNotFoundException ex) {
             System.err.println(ex.toString());
             return;
