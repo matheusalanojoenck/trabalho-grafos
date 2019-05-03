@@ -13,14 +13,15 @@ import java.util.ArrayList;
  */
 public class Euleriano {
     private ArrayList<ArrayList<Integer>> listaAdj;
+    private int verticeImpar = 0;
     
     public Euleriano(ArrayList<ArrayList<Integer>> listaAdj){
-        this.listaAdj = new ArrayList();
+        this.listaAdj = new ArrayList<>();
         this.listaAdj = listaAdj;
     }
     
     /**
-     * 
+     * Verifica se o grafo é euleriano
      * @return 0 - Não Euleriano | 1 - Semi-Euleriano | 2 - Euleriano
      */
     public int isEuleriano(){
@@ -30,12 +31,22 @@ public class Euleriano {
         
         int impar =0;
         for (int i = 0; i < listaAdj.size(); i++) {
-            if(listaAdj.get(i).size()%2 != 0) impar++;
+            if(listaAdj.get(i).size()%2 != 0){
+                impar++;
+                verticeImpar = i;
+            }
         }
         
         if(impar > 2) return 0;
         
         return (impar == 2)?1 : 2;
+    }
+
+    /*
+    Retorna o ultima vertice impar encontrado
+     */
+    public int getVerticeImpar(){
+        return verticeImpar;
     }
     
     @Override
