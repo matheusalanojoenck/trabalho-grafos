@@ -23,15 +23,15 @@ public class Fleury {
         adj = new ArrayList<>();
         for (int i = 0; i < verticesQnt; i++) {
             adj.add(new ArrayList<>());
-            arestasQnt = arestasQnt + listaAdjOriginal.get(i).size();
+            arestasQnt = arestasQnt + listaAdjOriginal.get(i).size(); //Faz a soma dos graus dos vertices
             for (int j = 0; j < listaAdjOriginal.get(i).size(); j++) {
                 adj.get(i).add(listaAdjOriginal.get(i).get(j));
             }
         }
 
-        arestasQnt = arestasQnt/2;
+        arestasQnt = arestasQnt/2; //calcula a quantidade de arestas baseado na soma do grau dos vertices
 
-        caminhoEuleriano = new int[arestasQnt][2];
+        caminhoEuleriano = new int[arestasQnt][2]; //cria um vetor que vai guardar o caminho euleriano
     }
 
     public void printCicloEuleriano(){
@@ -41,8 +41,8 @@ public class Fleury {
 
     /*
     Primeiro verifica se o grafo é euleriano ou semi euleriano.
-    Depois verifica se há um vertice impar e depois chama
-    a função printEulerUtil a mostar o caminho
+    Depois depois pega um vertice de grau impar, se há algum.
+    Chama a função printEulerUtil para mostar o caminho
     */
     private void cicloEuleriano(){
         Euleriano euleriano = new Euleriano(adj);
@@ -67,11 +67,11 @@ public class Fleury {
             Integer v = adj.get(u).get(i);
 
             if(isProximaArestaValida(u, v)){
-                caminhoEuleriano[index][0] = u;
-                caminhoEuleriano[index][1] = v;
-                index++;
-                removeAresta(u, v);
-                printEulerUtil(v);
+                caminhoEuleriano[index][0] = u; // u é origem da aresta
+                caminhoEuleriano[index][1] = v; // v é destino da aresta
+                index++; // caminha no vetor 'caminhoEuleriano', cada posição do vetor é um aresta que pertence ao caminho euleriano
+                removeAresta(u, v); //quando uma aresta é adicionada no caminho euleriano, se retira a mesma do grafo inicial.
+                printEulerUtil(v); // chamada recursiva para o proximo vertice
             }
         }
     }
@@ -90,19 +90,18 @@ public class Fleury {
 
         //Se houver mais de um vertice adjacente então:
         // a) Conte os vertices alcançáveis a partir de u
-        boolean[] isVisitado = new boolean[this.verticesQnt];
-        int count1 = dfsCount(u, isVisitado);
+        boolean[] isVisitado = new boolean[this.verticesQnt]; //vetor para marcar os vertices visitados, é passado como arugumento em dfsCount
+        int count1 = dfsCount(u, isVisitado); //quantidade vertice alcançaveis apartir do vertice u
 
         // b) Remova a aresta u - v e apos remover,
         //conte os vertices alcançáveis a partir u
-        removeAresta(u, v);
-        isVisitado = new boolean[this.verticesQnt];
-        int count2 = dfsCount(u, isVisitado);
+        removeAresta(u, v); //remove a aresta u - v
+        isVisitado = new boolean[this.verticesQnt]; //vetor para marcar os vertices visitados, é passado como arugumento em dfsCount
+        int count2 = dfsCount(u, isVisitado); //conta os vertices alcançaveis apartir de um vertice após a remoção da aresta
 
+        addAresta(u, v); //Adcione a aresta que foi removida
 
-        //Adcione a aresta que foi removida
-        //Verifique se a count1 é maior que count2, se não for o vertice não é valido.
-        addAresta(u, v);
+        // Verifique se a count1 é maior que count2, se não for o vertice não é valido.
         return(count1 > count2) ? false : true;
     }
 
@@ -112,8 +111,7 @@ public class Fleury {
         //Marcar o vetice atual como visitado
         isVisitado[v] = true; 
         int count = 1;
-
-
+        
         for(int adj : adj.get(v)){
             if(!isVisitado[adj]){
                 count = count + dfsCount(adj, isVisitado);
