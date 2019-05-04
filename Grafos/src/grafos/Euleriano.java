@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Euleriano {
     private ArrayList<ArrayList<Integer>> listaAdj;
     private int verticeImpar = 0;
+    private int tipoEuleriano = -1;
     
     public Euleriano(ArrayList<ArrayList<Integer>> listaAdj){
         this.listaAdj = new ArrayList<>();
@@ -29,31 +30,36 @@ public class Euleriano {
         
         if(!conexo.isConexo()) return 0;
         
-        int impar =0;
+        int impar = 0;
+
+        //Procura a quantidade de vertices de grau impar
         for (int i = 0; i < listaAdj.size(); i++) {
             if(listaAdj.get(i).size()%2 != 0){
                 impar++;
-                verticeImpar = i;
+                verticeImpar = i; //ultimo vertice de grau impar encontrado
             }
         }
         
-        if(impar > 2) return 0;
-        
-        return (impar == 2)?1 : 2;
+        if(impar > 2) return tipoEuleriano = 0;
+
+        if(impar == 2){
+            return  tipoEuleriano = 1;
+        }else{
+            return tipoEuleriano = 2; //Um grafo conexo nunca vai ter um vertice impar unico
+        }
+
+        //return (impar == 2) ? tipoEuleriano = 1 : tipoEuleriano = 2;
     }
 
-    /*
-    Retorna o ultima vertice impar encontrado
-     */
+    //Retorna o ultima vertice impar encontrado
     public int getVerticeImpar(){
         return verticeImpar;
     }
-    
+
+    //Mostra uma mensagem informando se o grafo é euleriano
     @Override
     public String toString(){
-        int resposta = isEuleriano();
-        
-        switch (resposta) {
+        switch (tipoEuleriano) {
             case 0:
                 return "O Grafo não é Euleriano";
             case 1:
