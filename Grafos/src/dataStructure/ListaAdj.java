@@ -1,6 +1,7 @@
 package dataStructure;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -22,7 +23,8 @@ public class ListaAdj {
             if(listaElementos.get(i) != -1){
                 listaAdj.get(j).add(listaElementos.get(i));
             }else{
-                listaAdj.add(new ArrayList());
+                listaAdj.add(new ArrayList<>());
+                Collections.sort(listaAdj.get(j)); //Ordena os vertice adjacentes ao vertice j
                 j++;
             }
         }
@@ -37,12 +39,14 @@ public class ListaAdj {
     }
     
     public void addVertice(){
-        listaAdj.add(new ArrayList());
+        listaAdj.add(new ArrayList<>());
     }
     
     public void addArrresta(Integer v1, Integer v2){
         listaAdj.get(v1).add(v2);
         listaAdj.get(v2).add(v1);
+        Collections.sort(listaAdj.get(v1));
+        Collections.sort(listaAdj.get(v2));
     }
     
     public void removeAresta(Integer v1, Integer v2){

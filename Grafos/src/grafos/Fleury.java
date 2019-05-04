@@ -111,7 +111,7 @@ public class Fleury {
         //Marcar o vetice atual como visitado
         isVisitado[v] = true; 
         int count = 1;
-        
+
         for(int adj : adj.get(v)){
             if(!isVisitado[adj]){
                 count = count + dfsCount(adj, isVisitado);
