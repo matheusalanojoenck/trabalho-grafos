@@ -26,7 +26,10 @@ public class Util {
     public  void initDado(){
         Scanner scanner;
         try {
-            scanner = new Scanner(new File("dados/dados 6.txt"));
+            System.out.print("Nome do arquivo: ");
+            scanner = new Scanner(System.in);
+            String nomeArquivo = scanner.nextLine();
+            scanner = new Scanner(new File("dados/"+ nomeArquivo + ".txt"));
         } catch (FileNotFoundException ex) {
             System.err.println(ex.toString());
             return;

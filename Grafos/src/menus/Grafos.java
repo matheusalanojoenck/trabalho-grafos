@@ -1,7 +1,6 @@
 package menus;
 
 import grafos.Util;
-
 import java.util.Scanner;
 
 /**
@@ -26,6 +25,7 @@ public class Grafos {
             System.out.print  (">> ");
             Scanner scanner = new Scanner(System.in);
             opcao = scanner.nextInt();
+
             if(opcao == 1 || opcao == 2) util.initDado(); //Somente le os dados se não for 0;
             switch (opcao){
                 case 0: break;
