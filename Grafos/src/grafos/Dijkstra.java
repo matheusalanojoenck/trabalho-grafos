@@ -16,6 +16,15 @@ public class Dijkstra {
         V = matrizAdjPeso.size();
     }
 
+    private boolean verificaNegativo(){
+        for (int i = 0; i < matrizAdjPeso.size(); i++) {
+            for (int j = 0; j < matrizAdjPeso.get(i).size(); j++) {
+                if(matrizAdjPeso.get(i).get(j) < 0) return true;
+            }
+        }
+        return false;
+    }
+
     //Encontra o vertice com a menor distancia no conjunto de vertices não visitados
     private int minDistance(int[] estimativa, boolean[] visitado) {
         int min = Integer.MAX_VALUE;//pré defini a menor distancia como infinito
@@ -40,6 +49,10 @@ public class Dijkstra {
     }
 
     public void dijkstra(int origem){
+        if(verificaNegativo()){
+            System.out.println("O grafo tem peso negativo!");
+            return;
+        }
 
         //vetor que guarda o valor da distancia da origem para os outros vertices
         int[] estimativa = new int[V];
