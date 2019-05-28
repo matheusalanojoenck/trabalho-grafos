@@ -60,6 +60,7 @@ class MenuGrafoND {
                     break;
                 case 6:
                     Euleriano euleriano = new Euleriano(listaAdj.getListaAdj());
+                    euleriano.isEuleriano();
                     System.out.println(euleriano.toString());
                     break;
                 case 7:
