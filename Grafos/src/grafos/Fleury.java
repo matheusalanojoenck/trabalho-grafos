@@ -6,9 +6,9 @@ import java.util.Arrays;
 public class Fleury {
     
     private ArrayList<ArrayList<Integer>> adj;
-    private final int verticesQnt;
-    private int arestasQnt = 0;
-    private int [][] caminhoEuleriano;
+    private final int verticesQnt; //quantidade de vertices do grafo
+    private int arestasQnt = 0; // quantidade de arestas do grafo
+    private int [][] caminhoEuleriano; //vetor para guardar o caminho euleriano
     private int index = 0;
     
     public Fleury(ArrayList<ArrayList<Integer>> listaAdjOriginal){
@@ -23,13 +23,13 @@ public class Fleury {
         adj = new ArrayList<>();
         for (int i = 0; i < verticesQnt; i++) {
             adj.add(new ArrayList<>());
-            arestasQnt = arestasQnt + listaAdjOriginal.get(i).size(); //Faz a soma dos graus dos vertices
+            arestasQnt = arestasQnt + listaAdjOriginal.get(i).size(); //Faz a soma dos graus dos vertices para calcular a quantidade de vertices
             for (int j = 0; j < listaAdjOriginal.get(i).size(); j++) {
                 adj.get(i).add(listaAdjOriginal.get(i).get(j));
             }
         }
 
-        arestasQnt = arestasQnt/2; //calcula a quantidade de arestas baseado na soma do grau dos vertices
+        arestasQnt = arestasQnt/2; //calcula a quantidade de arestas baseado na quantidade total dos graus dos vertices
 
         caminhoEuleriano = new int[arestasQnt][2]; //cria um vetor que vai guardar o caminho euleriano
     }
