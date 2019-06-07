@@ -60,8 +60,11 @@ public class Dijkstra {
         //Marca os vertices vistados
         boolean[] visitado = new boolean[V];
 
-        //Marca o vertice precedente do menor caminho da origem ao vertice atual;
+        //Marca o vertice precedente do menor caminho da origem ao vertice atual
         int[] precedente = new int[V];
+
+        //Marca o precedente do vertice de origem como ele mesmo
+        precedente[origem] = origem;
 
         //Inicializa o vetor de distancia com infinito
         //e marca todos os vertices do vetor visitado[i] como 'false'
